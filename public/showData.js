@@ -1,6 +1,6 @@
 var ShowsDatas = function (url) {
     this.url = url;
-
+    this.data = []
 }
 
 ShowsDatas.prototype.getData = function (search) {
@@ -10,22 +10,22 @@ ShowsDatas.prototype.getData = function (search) {
         if (xhr.status !== 200) return;
 
         var jsonString = xhr.responseText;
-        var data = JSON.parse(jsonString);
+         this.data = JSON.parse(jsonString);
 
         var div = document.querySelector('#shows');
         div.innerHTML = "";
         
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < this.data.length; i++) {
             
             var output = document.createElement('div');
-            var element = data[i];
+            var element = this.data[i];
             
             output.innerHTML += `
                     <div class="col-md-3">
                         <div class="well text-center">
                         <img src="${element.show.image.medium}">
                         <h5>${element.show.name}</h5>
-                         <a onclick="tvShowSelected('${element.show.id}')" class="btn btn-primary" href="#">TvShow Details</a>
+                         <a onclick="ShowsDatas.prototype.tvShowSelected('${element.show.id}')" class="btn btn-primary" href="#">TvShow Details</a>
                         </div>
                     </div>
                     `;
@@ -38,13 +38,13 @@ ShowsDatas.prototype.getData = function (search) {
     xhr.send();
 }
 
-function tvShowSelected(id){
+ShowsDatas.prototype.tvShowSelected = function(id){
     sessionStorage.setItem('showId', id)
     window.location = 'tvshow.html';
     return false;
 }
 
-function getTvShow(){
+ShowsDatas.prototype.getTvShow = function(){
     var tvShowId = sessionStorage.getItem('showId');
 
     var xhr = new XMLHttpRequest();
@@ -83,7 +83,7 @@ function getTvShow(){
             ${data.summary}
             <hr>
             <a href="http://imdb.com/title/${data.externals.imdb}" target="_blank" class="btn btn-primary">View IMDB</a>
-            <a href="../index.html" class="btn btn-default">Go Back To Search</a>
+            <a href="/" class="btn btn-default">Go Back To Search</a>
           </div>
         </div>
       `;
