@@ -2,8 +2,26 @@
 <html>
 <head>
   <title>Charts</title>
+  <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="listView.js"></script>
+  <script src="showData.js"></script>
+  <script src="index.js"></script>
 </head>
 <body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h3 class="text-center">Everything about Tv Shows</h3>
+      <form id="searchForm">
+        <input type="text" class="form-control" id="searchText" placeholder="Search Tv Show">
+      </form>
+    </div>
+  </div>
+
+  <div id="shows" class="container">
+    <div id="show" class="row"></div>
+  </div>
 
 </body>
 </html>
