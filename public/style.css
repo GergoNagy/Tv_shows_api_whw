@@ -1,8 +1,29 @@
-#shows  {
-    /* display: table-cell; */
-    display: inline;
-    list-style-type: none;
+#shows img {
+  width:100%;
 }
 
+@media(min-width:960px){
+  #shows .col-md-3 .well{
+    height: 390px;
+  }
+
+  #shows .col-md-3 img{
+    height:240px;
+  }
+}
+
+#show img {
+  width:100%;
+}
+
+@media(min-width:960px){
+  #show .col-md-3 .well{
+    height: 390px;
+  }
+
+  #show .col-md-3 img{
+    height:240px;
+  }
+}
 
 
