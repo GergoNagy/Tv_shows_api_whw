@@ -26,4 +26,18 @@
   }
 }
 
+#seasons img {
+  width:100%;
+}
+
+@media(min-width:960px){
+  #seasons .col-md-3 .well{
+    height: 390px;
+  }
+
+  #seasons .col-md-3 img{
+    height:240px;
+  }
+}
+
 
